@@ -24,19 +24,6 @@ const TodoComponent = () => {
         } 
 
     }, [id])
-    
-    // function saveOrUpdateTodo(e){
-    //     e.preventDefault()
-
-    //     const todo = {title, description, completed}
-
-    //     addTodo(todo).then((response) => {
-    //         console.log(response)
-    //         nav('/')
-    //     }).catch(error => {
-    //         console.error(error)
-    //     })
-    // }
 
     function saveOrUpdateTodo(e){
         e.preventDefault()
