@@ -33,14 +33,14 @@ const TodoComponent = () => {
         if (id){
             updateTodo(id, todo).then((response) => {
                 console.log(response)
-                nav('/')
+                nav('/todos')
             }).catch(error => {
                 console.error(error)
             })
         } else {
             addTodo(todo).then((response) => {
                 console.log(response)
-                nav('/')
+                nav('/todos')
             }).catch(error => {
                 console.error(error)
             })

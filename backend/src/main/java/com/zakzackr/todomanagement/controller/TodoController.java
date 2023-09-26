@@ -58,7 +58,7 @@ public class TodoController {
     public ResponseEntity<String> deleteTodo(@PathVariable Long id){
         todoService.deleteTodo(id);
 
-        return ResponseEntity.ok("The todo task with id " + id + " has been successfully deleted.");
+        return ResponseEntity.ok("Todo deleted successfully.");
     }
 
     // complete todo REST API
