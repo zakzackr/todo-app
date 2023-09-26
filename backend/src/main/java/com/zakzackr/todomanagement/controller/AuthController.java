@@ -1,5 +1,6 @@
 package com.zakzackr.todomanagement.controller;
 
+import com.zakzackr.todomanagement.dto.JwtAuthResponse;
 import com.zakzackr.todomanagement.dto.LoginDto;
 import com.zakzackr.todomanagement.dto.RegisterDto;
 import com.zakzackr.todomanagement.service.AuthService;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/auth")
 @AllArgsConstructor
@@ -25,8 +27,12 @@ public class AuthController {
 
     // build login REST API
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
-        String response = authService.login(loginDto);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+    public ResponseEntity<JwtAuthResponse> login(@RequestBody LoginDto loginDto){
+        JwtAuthResponse jwtAuthResponse = authService.login(loginDto);
+
+//        JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
+//        jwtAuthResponse.setAccessToken(token);
+
+        return new ResponseEntity<>(jwtAuthResponse, HttpStatus.OK);
     }
 }
