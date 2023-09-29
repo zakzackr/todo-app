@@ -4,6 +4,7 @@ import com.zakzackr.todomanagement.dto.JwtAuthResponse;
 import com.zakzackr.todomanagement.dto.LoginDto;
 import com.zakzackr.todomanagement.dto.RegisterDto;
 import com.zakzackr.todomanagement.service.AuthService;
+import com.zakzackr.todomanagement.service.EmailSenderService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +18,19 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private AuthService authService;
+    private EmailSenderService senderService;
+
 
     // build register REST API
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto){
         String response = authService.register(registerDto);
+
+        senderService.sendEmail(
+                registerDto.getEmail(),
+				"Register Confirmation Email",
+				"Welcome to Todo App!!");
+
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
