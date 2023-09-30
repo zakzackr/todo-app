@@ -67,17 +67,17 @@ public class SpringSecurityConfig {
 //    public UserDetailsService userDetailsService(){
 //
 //        UserDetails zack = User.builder()
-//                .username("zack")
-//                .password(passwordEncoder().encode("password"))
+//                .username("user1")
+//                .password(passwordEncoder().encode("password1"))
 //                .roles("USER")
 //                .build();
 //
 //        UserDetails admin = User.builder()
-//                .username("admin")
-//                .password(passwordEncoder().encode("adminspassword"))
+//                .username("user2")
+//                .password(passwordEncoder().encode("password2"))
 //                .roles("ADMIN")
 //                .build();
 //
-//        return new InMemoryUserDetailsManager(zack, admin);
+//        return new InMemoryUserDetailsManager(user1, user2);
 //    }
 }
