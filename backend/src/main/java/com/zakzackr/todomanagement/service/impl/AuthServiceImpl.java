@@ -77,10 +77,13 @@ public class AuthServiceImpl implements AuthService {
                 loginDto.getUsernameOrEmail());
 
         String role = null;
+        Long userId = null;
 
         if (userOptional.isPresent()){
             User loggedInUser = userOptional.get();
             Optional<Role> optionalRole = loggedInUser.getRoles().stream().findFirst();
+
+            userId = loggedInUser.getId();
 
             if (optionalRole.isPresent()){
                 Role userRole = optionalRole.get();
@@ -91,6 +94,7 @@ public class AuthServiceImpl implements AuthService {
         JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
         jwtAuthResponse.setRole(role);
         jwtAuthResponse.setAccessToken(token);
+        jwtAuthResponse.setUserId(userId);
 
         return jwtAuthResponse;
     }
