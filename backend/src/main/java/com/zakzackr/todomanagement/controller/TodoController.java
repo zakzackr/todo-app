@@ -2,6 +2,7 @@ package com.zakzackr.todomanagement.controller;
 
 import com.zakzackr.todomanagement.dto.TodoDto;
 import com.zakzackr.todomanagement.entity.Todo;
+import com.zakzackr.todomanagement.entity.User;
 import com.zakzackr.todomanagement.service.TodoService;
 import com.zakzackr.todomanagement.service.impl.TodoServiceImpl;
 import lombok.AllArgsConstructor;
@@ -21,59 +22,69 @@ public class TodoController {
     private TodoService todoService;
 
     // add todo REST API
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping
-    public ResponseEntity<TodoDto> addTodo(@RequestBody TodoDto todoDto){
-        TodoDto saved = todoService.addTodo(todoDto);
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PostMapping("/{userId}")
+    public ResponseEntity<TodoDto> addTodo(@PathVariable Long userId,
+                                           @RequestBody TodoDto todoDto){
+
+        TodoDto saved = todoService.addTodo(userId, todoDto);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     // get todo REST API
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @GetMapping("{id}")
-    public ResponseEntity<TodoDto> getTodo(@PathVariable Long id){
-        TodoDto todoDto = todoService.getTodo(id);
+    @GetMapping("/{userId}/{todoId}")
+    public ResponseEntity<TodoDto> getTodo(@PathVariable Long todoId,
+                                           @PathVariable Long userId){
+
+        TodoDto todoDto = todoService.getTodo(todoId, userId);
         return ResponseEntity.ok(todoDto);
     }
 
     // get all todos REST API
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @GetMapping
-    public ResponseEntity<List<TodoDto>> getAllTodos(){
-        List<TodoDto> todoDtos = todoService.getAllTodos();
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<TodoDto>> getAllTodos(@PathVariable Long userId){
+
+        List<TodoDto> todoDtos = todoService.getAllTodos(userId);
         return ResponseEntity.ok(todoDtos);
     }
 
     // update todo REST API
-    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("{id}")
-    public ResponseEntity<TodoDto> updateTodo(@PathVariable Long id,
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PutMapping("/{userId}/{todoId}")
+    public ResponseEntity<TodoDto> updateTodo(@PathVariable Long todoId,
+                                              @PathVariable Long userId,
                                               @RequestBody TodoDto todoDto){
-        TodoDto updated = todoService.updateTodo(id, todoDto);
+
+        TodoDto updated = todoService.updateTodo(todoId, userId, todoDto);
         return ResponseEntity.ok(updated);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteTodo(@PathVariable Long id){
-        todoService.deleteTodo(id);
+    @DeleteMapping("{userId}/{todoId}")
+    public ResponseEntity<String> deleteTodo(@PathVariable Long todoId,
+                                             @PathVariable Long userId){
+        todoService.deleteTodo(todoId, userId);
 
         return ResponseEntity.ok("Todo deleted successfully.");
     }
 
     // complete todo REST API
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @PatchMapping("{id}/complete")
-    public ResponseEntity<TodoDto> completeTodo(@PathVariable Long id){
-        TodoDto updated = todoService.completeTodo(id);
+    @PatchMapping("/{userId}/{todoId}/complete")
+    public ResponseEntity<TodoDto> completeTodo(@PathVariable Long todoId,
+                                                @PathVariable Long userId){
+        TodoDto updated = todoService.completeTodo(todoId, userId);
         return ResponseEntity.ok(updated);
     }
 
     // incomplete todo REST API
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @PatchMapping("{id}/in-complete")
-    public ResponseEntity<TodoDto> inCompleteTodo(@PathVariable Long id){
-        TodoDto updated = todoService.inCompleteTodo(id);
+    @PatchMapping("/{userId}/{todoId}/in-complete")
+    public ResponseEntity<TodoDto> inCompleteTodo(@PathVariable Long todoId,
+                                                  @PathVariable Long userId){
+        TodoDto updated = todoService.inCompleteTodo(todoId, userId);
         return ResponseEntity.ok(updated);
     }
 }
