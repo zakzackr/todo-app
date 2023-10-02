@@ -22,16 +22,16 @@ function App() {
       <HeaderComponent />
       <Routes>
         <Route path='/' element = { <LoginComponent /> }></Route>
-        <Route path='/add-todo' element = { 
+        <Route path='/add-todo/:userId' element = { 
           <AuthenticatedRoute>
             <TodoComponent /> 
           </AuthenticatedRoute>
         }></Route>
-        <Route path='/update-todo/:id' element = { 
+        <Route path='/update-todo/:userId/:id' element = { 
           <AuthenticatedRoute>
             <TodoComponent /> 
           </AuthenticatedRoute>}></Route>
-        <Route path='/todos' element = { 
+        <Route path='/todos/:userId' element = { 
           <AuthenticatedRoute>
             <ListTodoComponent /> 
           </AuthenticatedRoute>
