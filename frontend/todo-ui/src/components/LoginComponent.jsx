@@ -19,11 +19,12 @@ const LoginComponent = () => {
             // const token = 'Basic ' + window.btoa(username + ":" + password)
             const token = 'Bearer ' + response.data.accessToken
             const role = response.data.role
+            const userId = response.data.userId
 
 
             storeToken(token)
-            saveLoggedInUser(username, role)
-            nav('/todos')
+            saveLoggedInUser(username, role, userId)
+            nav(`/todos/${userId}`)
 
             window.location.reload(false)
         }).catch(error => {

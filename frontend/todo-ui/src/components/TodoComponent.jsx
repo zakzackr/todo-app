@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { addTodo, getTodo, updateTodo } from '../services/TodoService'
 import { useNavigate, useParams } from 'react-router'
+import { getUserId } from '../services/AuthService'
 
 const TodoComponent = () => {
 
@@ -9,11 +10,12 @@ const TodoComponent = () => {
     const [completed, setCompleted] = useState(false)
     const nav = useNavigate()
     const { id } = useParams();
+    const userId = getUserId();
 
     useEffect(() => {
         
         if (id){
-            getTodo(id).then((response) => {
+            getTodo(id, userId).then((response) => {
                 console.log(response.data)
                 setTitle(response.data.title)
                 setDescription(response.data.description)
@@ -31,16 +33,16 @@ const TodoComponent = () => {
         const todo = {title, description, completed}
 
         if (id){
-            updateTodo(id, todo).then((response) => {
+            updateTodo(id, userId, todo).then((response) => {
                 console.log(response)
-                nav('/todos')
+                nav(`/todos/${userId}`)
             }).catch(error => {
                 console.error(error)
             })
         } else {
-            addTodo(todo).then((response) => {
+            addTodo(userId, todo).then((response) => {
                 console.log(response)
-                nav('/todos')
+                nav(`/todos/${userId}`)
             }).catch(error => {
                 console.error(error)
             })
