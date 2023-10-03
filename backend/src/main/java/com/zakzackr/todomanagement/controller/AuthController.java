@@ -25,11 +25,12 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto){
         String response = authService.register(registerDto);
+        String username = registerDto.getUsername();
 
         senderService.sendEmail(
                 registerDto.getEmail(),
 				"Register Confirmation Email",
-				"Welcome to Todo App!!");
+				"Hi " + username + ", welcome to Todo App!!");
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
