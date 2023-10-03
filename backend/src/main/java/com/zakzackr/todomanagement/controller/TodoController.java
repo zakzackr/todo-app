@@ -51,7 +51,7 @@ public class TodoController {
     }
 
     // update todo REST API
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{userId}/{todoId}")
     public ResponseEntity<TodoDto> updateTodo(@PathVariable Long todoId,
                                               @PathVariable Long userId,
@@ -61,7 +61,7 @@ public class TodoController {
         return ResponseEntity.ok(updated);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @DeleteMapping("{userId}/{todoId}")
     public ResponseEntity<String> deleteTodo(@PathVariable Long todoId,
                                              @PathVariable Long userId){
