@@ -1,15 +1,15 @@
 # 🗒️ Todoアプリ
 # 🖊️ 概要
 日々のタスクを管理することができるTodoアプリ
-<br>
+<br>    
 
 # ✨ Demo
 ![todo](https://github.com/zakzackr/todo-app/assets/100734822/a228274e-fc61-401d-aad0-d44b986059f0)
-<br>
+<br>    
 
 # 📍 URL
 http://todo-app-1.s3-website-ap-northeast-1.amazonaws.com
-<br>   
+<br>    
 
 # 💾 技術スタック
 | Category | Tech Stack |
@@ -19,10 +19,10 @@ http://todo-app-1.s3-website-ap-northeast-1.amazonaws.com
 | Database | MySQL |
 | Infrastructure | AWS (Elastic Beanstalk, S3, RDS) |
 | Others | Git, GitHub |
-<br>
+<br>    
 
 # 📝 説明
-Todoアプリを使用することで、タスクの追加・削除・更新などを行うことができます。
+Todoアプリのタスクの追加・削除・更新などの機能を使用して、日々のタスクの管理を行うことができます。
 <br>    
 
 ### 主な操作：
