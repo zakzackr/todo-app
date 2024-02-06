@@ -1,9 +1,9 @@
-# 🗒️Todoアプリ
-# 🖊️概要
+# 🗒️ Todoアプリ
+# 🖊️ 概要
 日々のTodoタスクを管理することができるTodoアプリ
 <br>
 
-# ✨Demo
+# ✨ Demo
 ![todo](https://github.com/zakzackr/todo-app/assets/100734822/a228274e-fc61-401d-aad0-d44b986059f0)
 <br>
 
