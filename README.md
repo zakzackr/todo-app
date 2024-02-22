@@ -4,7 +4,11 @@
 <br>    
 
 # ✨ Demo
-https://github.com/zakzackr/todo-app/assets/100734822/3f0689fc-d98e-415e-ab1d-d46f4b1b6e7d    
+
+
+https://github.com/zakzackr/todo-app/assets/100734822/6c6ae7cf-1671-4b8a-9d21-8cb88151d01c
+
+
 <br>    
 
 # 📍 URL
