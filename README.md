@@ -4,7 +4,7 @@
 <br>    
 
 # ✨ Demo
-![todo](https://github.com/zakzackr/todo-app/assets/100734822/a228274e-fc61-401d-aad0-d44b986059f0)
+https://github.com/zakzackr/todo-app/assets/100734822/3f0689fc-d98e-415e-ab1d-d46f4b1b6e7d    
 <br>    
 
 # 📍 URL
