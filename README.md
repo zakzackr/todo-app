@@ -14,8 +14,6 @@ https://github.com/zakzackr/todo-app/assets/100734822/6c6ae7cf-1671-4b8a-9d21-8c
 # 📍 URL
 http://todo-app-1.s3-website-ap-northeast-1.amazonaws.com<br>    
 (↑AWS無料枠超過のためEC2、RDS停止中)
-
-
 <br>    
     
 # 💾 技術スタック
@@ -27,6 +25,10 @@ http://todo-app-1.s3-website-ap-northeast-1.amazonaws.com<br>
 | Infrastructure | AWS (Elastic Beanstalk, S3, RDS) |
 | Others | Git, GitHub |
 <br>    
+
+# 📊 ER図
+<img width="771" alt="スクリーンショット 2024-11-18 15 35 55" src="https://github.com/user-attachments/assets/0ea5b23e-ae0e-4bb7-bde5-0342b000ba33">
+
 
 # 📝 説明
 Todoアプリのタスクの追加・削除・更新などの機能を使用して、日々のタスクの管理を行うことができます。
