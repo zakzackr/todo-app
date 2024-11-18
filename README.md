@@ -29,7 +29,7 @@ http://todo-app-1.s3-website-ap-northeast-1.amazonaws.com<br>
 <br>    
 
 # 📊 ER図
-<img width="771" alt="スクリーンショット 2024-11-18 15 35 55" src="https://github.com/user-attachments/assets/0ea5b23e-ae0e-4bb7-bde5-0342b000ba33">
+<img width="770" alt="スクリーンショット 2024-11-18 15 42 14" src="https://github.com/user-attachments/assets/4ca21af2-a22a-4d34-a602-2f6025149701">
 
 
 # 📝 説明
