@@ -70,7 +70,8 @@ Todoアプリのタスクの追加・削除・更新などの機能を使用し�
     - HTTPリクエストのURLにパスパラメータとしてユーザーIDとtodoIDを含めることで、バックエンド側で特定のユーザーの特定のタスクに対して処理を行うことができます<br>
 <br>
 
-詳細は、[こちらのReadme](https://github.com/zakzackr/reminder-app)をご覧ください。　　
+> [!NOTE]
+> 詳細は、[こちらのReadme](https://github.com/zakzackr/reminder-app)をご覧ください。　
 <br>    
 
 # 🔜 今後の計画
